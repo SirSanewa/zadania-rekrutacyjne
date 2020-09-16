@@ -6,24 +6,11 @@ wejście: [2,3,7,4,9], 10
 wyjście: [1,5,6,8,10]
 """
 
-
-def list_creator(numbers_range):
-    list = []
-    while len(list) != numbers_range:
-        for number in range(numbers_range):
-            list.append(number + 1)
-    return list
-
-
-def missing_numbers(numbers_range, numbers):
-    numbers_list = list_creator(numbers_range)
-    for number in numbers:
-        if number in numbers_list:
-            numbers_list.remove(number)
-    return numbers_list
+def missing_numbers_list(entry_list, end_number):
+    return [number for number in range(1, end_number+1) if number not in entry_list]
 
 
 if __name__ == "__main__":
     number_range = 10
     numbers = [2, 3, 7, 4, 9]
-    print(missing_numbers(number_range, numbers))
+    print(missing_numbers_list(numbers, number_range))
